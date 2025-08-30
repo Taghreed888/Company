@@ -1,0 +1,13 @@
+﻿global using Microsoft.AspNetCore.Http;
+global using AutoMapper;
+global using Company.BLL.Helper;
+global using Company.BLL.Mapper;
+global using Company.BLL.ModelVM;
+global using Company.DAL.Entity;
+global using Company.DAL.Repo.Abstraction;
+global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Text;
+global using System.Threading.Tasks;
+global using Company.BLL.Services.Abstraction;

@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+	 <PackageReference Include="GridMvcCore" Version="8.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Localization" Version="9.0.8" />
+    <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="9.0.8" />
+    <PackageReference Include="NonFactors.Grid.Core.Mvc6" Version="8.0.0" />
+    <PackageReference Include="NonFactors.Grid.Mvc6" Version="8.0.0" />
+	  <PackageReference Include="AutoMapper" Version="15.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Company.BLL\Company.BLL.csproj" />
+    <ProjectReference Include="..\Company.DAL\Company.DAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\NewFolder\" />
+    <Folder Include="wwwroot\Files\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\celestial\css\.DS_Store" />
+    <None Include="wwwroot\celestial\css\maps\.DS_Store" />
+    <None Include="wwwroot\celestial\fonts\.DS_Store" />
+    <None Include="wwwroot\celestial\fonts\Karla\.DS_Store" />
+    <None Include="wwwroot\celestial\fonts\Roboto\.DS_Store" />
+    <None Include="wwwroot\celestial\images\.DS_Store" />
+    <None Include="wwwroot\celestial\images\auth\.DS_Store" />
+    <None Include="wwwroot\celestial\images\demo\.DS_Store" />
+    <None Include="wwwroot\celestial\images\faces\.DS_Store" />
+    <None Include="wwwroot\celestial\images\file-icons\.DS_Store" />
+    <None Include="wwwroot\celestial\images\file-icons\128\.DS_Store" />
+    <None Include="wwwroot\celestial\images\file-icons\256\.DS_Store" />
+    <None Include="wwwroot\celestial\images\file-icons\512\.DS_Store" />
+    <None Include="wwwroot\celestial\images\file-icons\64\.DS_Store" />
+    <None Include="wwwroot\celestial\images\samples\.DS_Store" />
+    <None Include="wwwroot\celestial\js\.DS_Store" />
+    <None Include="wwwroot\celestial\vendors\.DS_Store" />
+  </ItemGroup>
+
+</Project>

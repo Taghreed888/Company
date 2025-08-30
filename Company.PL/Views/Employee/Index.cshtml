@@ -1,0 +1,65 @@
+﻿@using NonFactors.Mvc.Grid
+@using Company.BLL.ModelVM
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@model IEnumerable<IndexEmployeeVM>
+
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<h1>Employee List</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">@Localizer["CreateNew"]</a>
+</p>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-warning" role="alert">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+@(Html.Grid(Model)
+    .Build(columns =>
+    {
+        columns.Add(m => m.ImageURL)
+               .Titled("Photo")
+               .RenderedAs(m => $"<img src='/Files/{m.ImageURL}' style='width:60px; height:60px; border-radius:50%;' />")
+               .Encoded(false); // allow HTML rendering
+
+        columns.Add(m => m.Name).Titled("Name").Sortable(true).Filterable(true);
+
+        columns.Add(m => m.DepartmentName).Titled("Department").Sortable(true).Filterable(true);
+
+        columns.Add(m => m.Id).Titled("Actions").RenderedAs(m =>
+             $@"<div class='btn-group' role='group'>
+                    <a href='/Employee/Edit/{m.Id}' class='btn btn-sm btn-warning'>
+                        <i class='bi bi-pencil'></i> Edit
+                    </a>
+                    <a href='/Employee/Details/{m.Id}' class='btn btn-sm btn-info text-white'>
+                        <i class='bi bi-eye'></i> Details
+                    </a>
+                    <a href='/Employee/Delete/{m.Id}' class='btn btn-sm btn-danger'>
+                        <i class='bi bi-trash'></i> Delete
+                    </a>
+               </div>"
+         ).Encoded(false);
+    })
+    
+    .Empty("No employees found in the system. Why not create one?")
+    .Pageable(pager =>
+    {
+        pager.PageSizes = new Dictionary<int, string>
+        {
+            { 5, "5" },
+            { 10, "10" },
+            { 20, "20" },
+            { 50, "50" },
+            { 0, "All" }
+        };
+        pager.ShowPageSizes = true;
+        pager.RowsPerPage = 5;
+    })
+)
